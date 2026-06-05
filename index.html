@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khan Children Academy – Karachi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --kca-navy: #1a2e52;
+  --kca-gold: #c9952a;
+  --kca-cream: #faf8f3;
+  --kca-light: #f0ece0;
+  --kca-text: #1a2e52;
+  --kca-muted: #5a6a85;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--kca-cream); color: var(--kca-text); }
+nav {
+  background: var(--kca-navy); padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 100;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-emblem {
+  width: 38px; height: 38px; background: var(--kca-gold); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: white;
+}
+.nav-name { font-size: 14px; font-weight: 500; color: white; line-height: 1.3; }
+.nav-name span { display: block; font-size: 11px; font-weight: 300; color: #a0b0c8; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { color: #a0b0c8; font-size: 13px; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--kca-gold); }
+.hero {
+  background: var(--kca-navy); padding: 5rem 2rem 4rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 300px; height: 300px; border: 40px solid rgba(201,149,42,0.08); border-radius: 50%;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -40px; left: -40px;
+  width: 200px; height: 200px; border: 30px solid rgba(201,149,42,0.06); border-radius: 50%;
+}
+.hero-tag {
+  display: inline-block; background: rgba(201,149,42,0.15); color: var(--kca-gold);
+  font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 1.5rem; border: 1px solid rgba(201,149,42,0.3);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700; color: white; line-height: 1.2; margin-bottom: 1rem;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { color: var(--kca-gold); font-style: normal; }
+.hero p {
+  color: #8fa5c0; font-size: 15px; font-weight: 300;
+  max-width: 480px; margin: 0 auto 2rem; line-height: 1.7;
+}
+.hero-cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.btn-primary {
+  background: var(--kca-gold); color: white; padding: 12px 28px; border-radius: 6px;
+  font-size: 14px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s;
+}
+.btn-primary:hover { background: #b8841f; }
+.btn-ghost {
+  background: transparent; color: white; padding: 12px 28px; border-radius: 6px;
+  font-size: 14px; font-weight: 400; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+.stats-bar {
+  background: var(--kca-gold); padding: 1.2rem 2rem;
+  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: white; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.8); font-weight: 400; letter-spacing: 0.5px; margin-top: 2px; }
+section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--kca-gold); margin-bottom: 0.5rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--kca-navy); margin-bottom: 1rem; line-height: 1.3; }
+.section-body { color: var(--kca-muted); font-size: 15px; line-height: 1.8; font-weight: 300; max-width: 560px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+.about-card { background: white; border-radius: 12px; padding: 1.5rem; border: 0.5px solid #e0ddd5; }
+.about-card-icon {
+  width: 44px; height: 44px; background: var(--kca-light); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--kca-navy); font-size: 20px;
+}
+.about-card h3 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--kca-navy); margin-bottom: 0.5rem; }
+.about-card p { font-size: 13px; color: var(--kca-muted); line-height: 1.6; font-weight: 300; }
+.programs-section { background: var(--kca-navy); padding: 4rem 0; }
+.programs-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+.programs-section .section-title { color: white; }
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.program-card {
+  background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 1.5rem 1.2rem; text-align: center; transition: background 0.2s;
+}
+.program-card:hover { background: rgba(255,255,255,0.1); }
+.program-age {
+  display: inline-block; background: rgba(201,149,42,0.2); color: var(--kca-gold);
+  font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-bottom: 0.8rem; border: 1px solid rgba(201,149,42,0.3);
+}
+.program-card h3 { font-family: 'Playfair Display', serif; font-size: 16px; color: white; margin-bottom: 0.5rem; }
+.program-card p { font-size: 12px; color: #8fa5c0; font-weight: 300; line-height: 1.5; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; }
+.why-item { display: flex; gap: 14px; align-items: flex-start; background: white; padding: 1.2rem; border-radius: 10px; border: 0.5px solid #e0ddd5; }
+.why-dot { width: 8px; height: 8px; background: var(--kca-gold); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.why-item h4 { font-size: 14px; font-weight: 500; color: var(--kca-navy); margin-bottom: 4px; }
+.why-item p { font-size: 12px; color: var(--kca-muted); font-weight: 300; line-height: 1.5; }
+.contact-section {
+  background: var(--kca-light); border-radius: 16px; padding: 3rem 2rem;
+  max-width: 900px; margin: 0 auto 4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+}
+.contact-info h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--kca-navy); margin-bottom: 1rem; }
+.contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.8rem; }
+.contact-row i { color: var(--kca-gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+.contact-row p { font-size: 13px; color: var(--kca-muted); font-weight: 300; line-height: 1.5; }
+.enroll-card { background: var(--kca-navy); border-radius: 12px; padding: 2rem; text-align: center; }
+.enroll-card h3 { font-family: 'Playfair Display', serif; color: white; font-size: 1.3rem; margin-bottom: 0.5rem; }
+.enroll-card p { color: #8fa5c0; font-size: 13px; margin-bottom: 1.5rem; font-weight: 300; }
+footer { background: var(--kca-navy); padding: 1.5rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+footer p { color: #8fa5c0; font-size: 12px; font-weight: 300; }
+footer span { color: var(--kca-gold); }
+@media (max-width: 600px) {
+  .about-grid, .why-grid, .contact-section { grid-template-columns: 1fr; }
+  .stats-bar { gap: 1.5rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-emblem">KCA</div>
+    <div class="nav-name">Khan Children Academy <span>Karachi, Pakistan</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Programs</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Est. in Karachi</div>
+  <h1>Where Young Minds <em>Flourish</em> &amp; Futures Begin</h1>
+  <p>A nurturing learning environment where every child discovers their potential through inspired teaching and holistic education.</p>
+  <div class="hero-cta">
+    <a href="#" class="btn-primary">Apply for Admission</a>
+    <a href="#" class="btn-ghost">Learn More</a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years of Excellence</div></div>
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Students Enrolled</div></div>
+  <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Qualified Faculty</div></div>
+  <div class="stat"><div class="stat-num">95%</div><div class="stat-label">Parent Satisfaction</div></div>
+</div>
+
+<section>
+  <p class="section-label">Our Story</p>
+  <h2 class="section-title">Building Tomorrow's Leaders, Today</h2>
+  <p class="section-body">Khan Children Academy is dedicated to providing a world-class education rooted in strong values, creative thinking, and academic excellence. We believe every child carries unique potential waiting to be unlocked.</p>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="about-card-icon"><i class="ti ti-book"></i></div>
+      <h3>Academic Excellence</h3>
+      <p>Rigorous curriculum aligned with national standards, delivered by experienced educators passionate about learning.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon"><i class="ti ti-heart"></i></div>
+      <h3>Holistic Development</h3>
+      <p>Beyond textbooks — we nurture creativity, emotional intelligence, and social skills that last a lifetime.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon"><i class="ti ti-users"></i></div>
+      <h3>Safe Community</h3>
+      <p>A secure, inclusive environment where every child feels valued, respected, and excited to come to school.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon"><i class="ti ti-star"></i></div>
+      <h3>Proven Results</h3>
+      <p>Our graduates consistently excel in higher education and carry the values instilled here throughout their lives.</p>
+    </div>
+  </div>
+</section>
+
+<div class="programs-section">
+  <div class="programs-inner">
+    <p class="section-label" style="color: #8fa5c0;">What We Offer</p>
+    <h2 class="section-title">Our Academic Programs</h2>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-age">Ages 3–5</div>
+        <h3>Early Years</h3>
+        <p>Play-based learning to build curiosity, language, and social foundations.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-age">Ages 6–8</div>
+        <h3>Primary I</h3>
+        <p>Core literacy, numeracy, and discovery through hands-on exploration.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-age">Ages 9–11</div>
+        <h3>Primary II</h3>
+        <p>Critical thinking, science, and expanded subjects with project-based work.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-age">Ages 12–14</div>
+        <h3>Middle School</h3>
+        <p>Preparation for higher studies with advanced academics and leadership skills.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <p class="section-label">Why Choose Us</p>
+  <h2 class="section-title">The KCA Difference</h2>
+  <div class="why-grid">
+    <div class="why-item"><div class="why-dot"></div><div><h4>Small Class Sizes</h4><p>Personalized attention ensures every student gets the support they need.</p></div></div>
+    <div class="why-item"><div class="why-dot"></div><div><h4>Bilingual Learning</h4><p>English and Urdu instruction preparing students for a global world.</p></div></div>
+    <div class="why-item"><div class="why-dot"></div><div><h4>Modern Facilities</h4><p>Well-equipped classrooms, library, and activity spaces designed for young learners.</p></div></div>
+    <div class="why-item"><div class="why-dot"></div><div><h4>Parent Partnership</h4><p>Regular communication and involvement programs that keep families engaged.</p></div></div>
+    <div class="why-item"><div class="why-dot"></div><div><h4>Experienced Faculty</h4><p>Trained, caring teachers dedicated to each child's growth journey.</p></div></div>
+    <div class="why-item"><div class="why-dot"></div><div><h4>Islamic Values</h4><p>Character and morality woven into daily learning alongside academics.</p></div></div>
+  </div>
+</section>
+
+<div class="contact-section">
+  <div class="contact-info">
+    <h2>Visit Us</h2>
+    <div class="contact-row"><i class="ti ti-map-pin"></i><p>Gulshan-e-Iqbal / Korangi area,<br>Karachi, Sindh, Pakistan</p></div>
+    <div class="contact-row"><i class="ti ti-clock"></i><p>Mon – Sat: 7:30 AM – 2:30 PM</p></div>
+    <div class="contact-row"><i class="ti ti-mail"></i><p>admissions@khanchildrenacademy.edu.pk</p></div>
+    <div class="contact-row"><i class="ti ti-phone"></i><p>+92 21 XXXX XXXX</p></div>
+  </div>
+  <div class="enroll-card">
+    <h3>Ready to Enroll?</h3>
+    <p>Admissions are open for the upcoming academic year. Secure your child's place today.</p>
+    <a href="#" class="btn-primary" style="display: inline-block;">Start Application</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Khan Children Academy</span> · Karachi, Pakistan · Shaping futures, one child at a time.</p>
+</footer>
+
+</body>
+</html>
